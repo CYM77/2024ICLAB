@@ -78,20 +78,28 @@ always @(posedge clk or negedge rst_n) begin
         state      <= IDLE;
         A_point    <= 0;
         B_point    <= 0;
+        out        <= 0;
+        act        <= 0;
+        base       <= 0;
+        early_stop <= 0;
     end
     else begin
         state      <= n_state;
         A_point    <= n_A_point;
         B_point    <= n_B_point;
+        out        <= n_out;
+        act        <= n_act;
+        base       <= n_base;
+        early_stop <= n_early_stop;
     end
 end
 
-always @(posedge clk) begin
-    out        <= n_out;
-    act        <= n_act;
-    base       <= n_base;
-    early_stop <= n_early_stop;
-end
+// always @(posedge clk) begin
+//     out        <= n_out;
+//     act        <= n_act;
+//     base       <= n_base;
+//     early_stop <= n_early_stop;
+// end
 
 //==============================================//
 //              Next State Block                //
